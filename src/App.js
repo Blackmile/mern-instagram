@@ -48,7 +48,7 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         // user is logged in...
-        console.log(authUser);
+        // console.log(authUser);
         setUser(authUser);
 
         if (authUser.displayName) {
@@ -70,7 +70,7 @@ function App() {
 
   const fetchPosts = async() =>
       await axios.get("/sync").then((response) => {
-        console.log(response);
+        // console.log(response);
         setPosts(response.data)
   })
 
@@ -81,7 +81,7 @@ function App() {
 
     const channel = pusher.subscribe('posts');
     channel.bind('inserted', (data) => {
-      console.log('data recieved', data)
+      // console.log('data recieved', data)
       fetchPosts();
     });
   }, [])
